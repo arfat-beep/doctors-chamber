@@ -3,11 +3,19 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
 import "./AuthLogin.css";
 const AuthLogin = () => {
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
-  const [signInWithGithub] = useSignInWithGithub(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
+  console.log(googleUser, githubUser);
+  if (googleUser || githubUser) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="AuthLogin-container">
       <div className="or-bar">

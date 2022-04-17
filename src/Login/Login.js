@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLogin from "../AuthLogin/AuthLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import "./Login.css";
 import auth from "../firebase.init";
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const emailRef = useRef("");
@@ -15,8 +18,8 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
+    user && navigate(from, { replace: true });
   };
-  user && console.log(user.user.displayName);
   return (
     <div className="form-container">
       <div>
