@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLogin from "../AuthLogin/AuthLogin";
 import auth from "../firebase.init";
 import {
@@ -8,7 +8,9 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { async } from "@firebase/util";
+import { toast, ToastContainer } from "react-toastify";
 const Signup = () => {
+  const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, SignUpLoading, SignUpError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
@@ -23,7 +25,8 @@ const Signup = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
-  user && console.log(user);
+  user && navigate("/");
+  SignUpError && toast.error(SignUpError?.message);
   return (
     <div className="form-container">
       <div>
@@ -48,6 +51,7 @@ const Signup = () => {
                 required
               />
             </div>
+            <ToastContainer />
             <p>
               Already Have an Account? <Link to="/login">Login</Link>
             </p>

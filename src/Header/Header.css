@@ -8,6 +8,11 @@ header {
   top: 0;
   z-index: 1000;
 }
+.logo-name {
+  color: #fff;
+  font-size: 30px;
+  text-decoration: none;
+}
 nav a {
   text-decoration: none;
   margin-left: 20px;

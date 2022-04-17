@@ -9,12 +9,13 @@ import "./Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../firebase.init";
+import Spinner from "../Spinner/Spinner";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   const [updatePassword] = useUpdatePassword(auth);
-  const [signInWithEmailAndPassword, user] =
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -24,8 +25,8 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    user && navigate(from, { replace: true });
   };
+  user && navigate(from, { replace: true });
   const handleForgetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
@@ -35,6 +36,9 @@ const Login = () => {
       toast.error("something is wrong. Check email box");
     }
   };
+  if (error) {
+    toast.error(error?.message);
+  }
   return (
     <div className="form-container">
       <div>

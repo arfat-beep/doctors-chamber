@@ -10,8 +10,8 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link to="/">
-          <img src="https://i.ibb.co/84gN6SG/logo.png" alt="" />
+        <Link className="logo-name" to="/">
+          Doctor's Chamber
         </Link>
       </div>
       <nav style={navValue ? { top: " 82px" } : { top: "-300px" }}>

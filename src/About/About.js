@@ -12,7 +12,7 @@ const About = () => {
           <h2>Arfatur Rahman</h2>
           <p>
             <strong>My goal :</strong>Now i'm in 4th year of B.Sc in CSE. My
-            next goal is to perfectly complete my B.Sc in CSE. I've also a
+            next goal is to complete my B.Sc in CSE perfectly. I've also a
             mission to complete this course with 720 marks and join "Programming
             Hero Team"
           </p>
