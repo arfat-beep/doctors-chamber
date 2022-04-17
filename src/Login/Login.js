@@ -6,6 +6,8 @@ import {
   useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import "./Login.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../firebase.init";
 const Login = () => {
   const navigate = useNavigate();
@@ -28,14 +30,15 @@ const Login = () => {
     const email = emailRef.current.value;
     if (email) {
       updatePassword(email);
-      console.log('success');
+      toast.success("Please check your email");
     } else {
-      console.log("fail");
+      toast.error("something is wrong. Check email box");
     }
   };
   return (
     <div className="form-container">
       <div>
+        <ToastContainer />
         <h1 className="section-title">Login</h1>
         <div>
           <form action="" onSubmit={handleSubmit}>
