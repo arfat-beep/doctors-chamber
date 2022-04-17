@@ -12,7 +12,15 @@ import Checkout from "./Checkout/Checkout";
 import RequireAuth from "./RequireAuth/RequireAuth";
 import Spinner from "./Spinner/Spinner";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./firebase.init";
 function App() {
+  const [user, loading] = useAuthState(auth);
+  loading && <Spinner></Spinner>;
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
   return (
     <div>
       <Header></Header>

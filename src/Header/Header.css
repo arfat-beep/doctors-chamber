@@ -40,6 +40,7 @@ nav a:hover {
     background-color: #4d77ff;
     text-align: center;
     transition: all 0.3s ease-in-out;
+    z-index: 10005;
   }
   nav a {
     margin: 0;

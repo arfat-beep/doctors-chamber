@@ -16,9 +16,6 @@ const AuthLogin = () => {
   const [signInWithGithub, githubUser, gitHubLoading, githubError] =
     useSignInWithGithub(auth);
   gitHubLoading && <Spinner></Spinner>;
-  // if (githubError) {
-  //   () => setError(githubError.message);
-  // }
   if (googleUser || githubUser) {
     navigate(from, { replace: true });
   }
