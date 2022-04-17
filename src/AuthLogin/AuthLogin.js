@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
+import Spinner from "../Spinner/Spinner";
 import "./AuthLogin.css";
 const AuthLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
-  const [signInWithGithub, githubUser] = useSignInWithGithub(auth);
-  console.log(googleUser, githubUser);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  const [signInWithGithub, githubUser, gitHubLoading, githubError] =
+    useSignInWithGithub(auth);
+  gitHubLoading && <Spinner></Spinner>;
+  // if (githubError) {
+  //   () => setError(githubError.message);
+  // }
   if (googleUser || githubUser) {
     navigate(from, { replace: true });
   }
@@ -25,6 +31,10 @@ const AuthLogin = () => {
       </div>
       <button onClick={() => signInWithGoogle()}>Google</button>
       <button onClick={() => signInWithGithub()}>Github</button>
+      {googleLoading && <p style={{ color: "#ffc700" }}>Loading Please Wait</p>}
+      {googleError && <p style={{ color: "red" }}>{googleError.message}</p>}
+      {gitHubLoading && <p style={{ color: "#ffc700" }}>Loading Please Wait</p>}
+      {githubError && <p style={{ color: "red" }}>{githubError.message}</p>}
     </div>
   );
 };

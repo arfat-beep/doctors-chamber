@@ -16,7 +16,6 @@ function App() {
   return (
     <div>
       <Header></Header>
-      <Spinner></Spinner>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>

@@ -9,7 +9,7 @@ import {
 import { async } from "@firebase/util";
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, SignUpLoading, SignUpError] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, profileError] = useUpdateProfile(auth);
   const nameRef = useRef("");
   const emailRef = useRef("");
@@ -50,9 +50,9 @@ const Signup = () => {
             <p>
               Already Have an Account? <Link to="/login">Login</Link>
             </p>
-            <p>{user ? "Login" : "Error"} </p>
+            <p style={{ color: "red", cursor: "pointer" }}>Forget Password ?</p>
             <div>
-              <input type="submit" value="Login" />
+              <input type="submit" value="Sign Up" />
             </div>
           </form>
         </div>
