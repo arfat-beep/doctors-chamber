@@ -1,0 +1,10 @@
+.or-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.or-bar > div {
+  width: 40%;
+  height: 2px;
+  background-color: gray;
+}

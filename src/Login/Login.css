@@ -1,0 +1,40 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container > div {
+  width: 300px;
+}
+.form-container p {
+  margin: 0;
+  padding: 0;
+}
+.form-container input:not([type="submit"]) {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+}
+.form-container input[type="submit"],
+.AuthLogin-container button {
+  background-color: #4d77ff;
+  width: 100%;
+  color: #fff;
+  margin: 20px 0;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 5px;
+}
+.form-container input[type="submit"]:hover,
+.AuthLogin-container button:hover {
+  background-color: #2c5dff;
+  cursor: pointer;
+}
+.form-container p a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #2c5dff;
+}

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import AuthLogin from "../AuthLogin/AuthLogin";
-import "./Login.css";
-const Login = () => {
+
+const Signup = () => {
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -17,9 +17,13 @@ const Login = () => {
   return (
     <div className="form-container">
       <div>
-        <h1 className="section-title">Login</h1>
+        <h1 className="section-title">Sign Up</h1>
         <div>
           <form action="" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name">Name</label>
+              <input type="text" ref={nameRef} name="name" id="" required />
+            </div>
             <div>
               <label htmlFor="email">Email</label>
               <input type="email" ref={emailRef} name="email" id="" required />
@@ -35,7 +39,7 @@ const Login = () => {
               />
             </div>
             <p>
-              New User? <Link to="/signup">Sign Up</Link>
+              Already Have an Account? <Link to="/login">Login</Link>
             </p>
             <div>
               <input type="submit" value="Login" />
@@ -48,4 +52,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
