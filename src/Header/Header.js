@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 import "./Header.css";
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [navValue, setNavValue] = useState(false);
+  const [user] = useAuthState(auth);
   return (
     <header>
       <div>
@@ -13,18 +14,39 @@ const Header = () => {
           <img src="https://i.ibb.co/84gN6SG/logo.png" alt="" />
         </Link>
       </div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/about">About</Link>
+      <nav style={navValue ? { top: " 82px" } : { top: "-300px" }}>
+        <Link onClick={() => setNavValue(!navValue)} to="/">
+          Home
+        </Link>
+        <Link onClick={() => setNavValue(!navValue)} to="/blogs">
+          Blogs
+        </Link>
+        <Link onClick={() => setNavValue(!navValue)} to="/about">
+          About
+        </Link>
         {user ? (
-          <Link to="/" onClick={() => signOut(auth)}>
+          <Link
+            to="/"
+            onClick={() => {
+              signOut(auth);
+              setNavValue(!navValue);
+            }}
+          >
             Logout
           </Link>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link onClick={() => setNavValue(!navValue)} to="/login">
+            Login
+          </Link>
         )}
       </nav>
+      <button className="menu-icon" onClick={() => setNavValue(!navValue)}>
+        <svg viewBox="0 0 100 80" width="40" height="40">
+          <rect width="100" height="20"></rect>
+          <rect y="30" width="100" height="20"></rect>
+          <rect y="60" width="100" height="20"></rect>
+        </svg>
+      </button>
     </header>
   );
 };

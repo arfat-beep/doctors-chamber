@@ -16,7 +16,7 @@ const Service = ({ service }) => {
           <strong>Description :</strong> {description}
         </p>
         <p>
-          <strong>Price :</strong> <span className="price-tag">{price}</span>
+          <strong>Operation price : {price} Taka</strong>
         </p>
         <button className="checkout-btn" onClick={() => navigate("/checkout")}>
           Checkout
