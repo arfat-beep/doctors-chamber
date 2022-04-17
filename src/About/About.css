@@ -1,0 +1,21 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about {
+  width: 400px;
+  border: 1px solid gray;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.about img {
+  width: 100%;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 576px) {
+  .about {
+    width: 100%;
+  }
+}

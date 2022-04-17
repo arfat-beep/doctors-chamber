@@ -38,3 +38,9 @@
   cursor: pointer;
   color: #2c5dff;
 }
+@media only screen and (max-width: 576px) {
+  .form-container > div {
+    width: 100%;
+    padding: 30px;
+  }
+}
