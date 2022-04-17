@@ -14,7 +14,7 @@ const Login = () => {
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   const [updatePassword] = useUpdatePassword(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
   const emailRef = useRef("");
   const passwordRef = useRef("");
