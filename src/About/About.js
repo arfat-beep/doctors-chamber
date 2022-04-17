@@ -9,9 +9,7 @@ const About = () => {
           alt=""
         />
         <div className="about-details">
-          <p>
-            <strong>Name : </strong> Arfatur Rahman
-          </p>
+          <h2>Arfatur Rahman</h2>
           <p>
             <strong>My goal :</strong>Now i'm in 4th year of B.Sc in CSE. My
             next goal is to perfectly complete my B.Sc in CSE. I've also a
