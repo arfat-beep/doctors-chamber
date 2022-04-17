@@ -1,13 +1,17 @@
 import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLogin from "../AuthLogin/AuthLogin";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useUpdatePassword,
+} from "react-firebase-hooks/auth";
 import "./Login.css";
 import auth from "../firebase.init";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+  const [updatePassword] = useUpdatePassword(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const emailRef = useRef("");
@@ -19,6 +23,15 @@ const Login = () => {
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
     user && navigate(from, { replace: true });
+  };
+  const handleForgetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      updatePassword(email);
+      console.log('success');
+    } else {
+      console.log("fail");
+    }
   };
   return (
     <div className="form-container">
@@ -43,7 +56,12 @@ const Login = () => {
             <p>
               New User? <Link to="/signup">Sign Up</Link>
             </p>
-            <p>{user && user?.user?.displayName}</p>
+            <p
+              onClick={handleForgetPassword}
+              style={{ color: "red", cursor: "pointer" }}
+            >
+              Forget Password ?
+            </p>
             <div>
               <input type="submit" value="Login" />
             </div>

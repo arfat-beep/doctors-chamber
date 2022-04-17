@@ -4,13 +4,14 @@ import AuthLogin from "../AuthLogin/AuthLogin";
 import auth from "../firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
+  useUpdatePassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { async } from "@firebase/util";
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, SignUpLoading, SignUpError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+  const [updateProfile] = useUpdateProfile(auth);
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -50,7 +51,7 @@ const Signup = () => {
             <p>
               Already Have an Account? <Link to="/login">Login</Link>
             </p>
-            <p style={{ color: "red", cursor: "pointer" }}>Forget Password ?</p>
+
             <div>
               <input type="submit" value="Sign Up" />
             </div>
