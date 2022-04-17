@@ -5,11 +5,12 @@ import Login from "./Login/Login";
 import Blogs from "./Blogs/Blogs";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import About from "./About/About";
+import Header from "./Header/Header";
 
 function App() {
   return (
     <div>
-      <Home></Home>
+      <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>

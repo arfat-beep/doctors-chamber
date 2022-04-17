@@ -1,0 +1,19 @@
+header {
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #4d77ff;
+}
+nav a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 25px;
+  padding: 7px 15px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+nav a:hover {
+  border-color: #c7c9d9;
+}

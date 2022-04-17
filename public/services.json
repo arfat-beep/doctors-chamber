@@ -1,0 +1,51 @@
+[
+    {
+        "id" :1,
+        "name" : "Heart transplant",
+        "img": "https://i.ibb.co/MGj056V/Heart-transplant-1.png",
+        "description" : "Heart transplant is a treatment that's usually reserved for people whose condition hasn't improved enough with medications or other surgeries.",
+        "price" : 300000
+
+    },
+    {
+        "id" :2,
+        "name" : "Aneurysm repair",
+        "img": "https://i.ibb.co/qnbffxK/Aneurysm-repair-1.png",
+        "description" : "The traditional and most common type of surgery for aortic aneurysms is open chest repair. It involves a major incision in the chest. General anesthesia is needed with this procedure. The aneurysm is removed and the section of aorta is replaced with an artificial graft made of material such as Dacron® or Teflon®.",
+        "price" : 500000
+
+    },
+    {
+        "id" :3,
+        "name" : "Maze surgery",
+        "img": "https://i.ibb.co/s1dkbRp/Maze-surgery-1.png",
+        "description" : "Maze is a surgical procedure used to treat an irregular heart rhythm (atrial fibrillation). A surgeon creates a pattern (maze) of scar tissue in the upper chambers of the heart (atria) using a scalpel or a device that delivers heat or cold energy. Scar tissue doesn't conduct electricity.",
+        "price" : 450000
+
+    },
+    {
+        "id" :4,
+        "name" : "Coronary Artery Bypass graft (CABG)",
+        "img": "https://i.ibb.co/yg35N9D/Coronary-Artery-Bypass-graft-CABG-1.png",
+        "description" : "A coronary artery bypass graft (CABG) is a surgical procedure used to treat coronary heart disease. It diverts blood around narrowed or clogged parts of the major arteries to improve blood flow and oxygen supply to the heart.",
+        "price" : 330000
+
+    },
+    {
+        "id" :5,
+        "name" : "Closed reduction-internal fixation",
+        "img": "https://i.ibb.co/gW9J1Lc/Closed-reduction-internal-fixation-1.png",
+        "description" : "Closed reduction-internal fixation, often abbreviated to CRIF, refers to the orthopedic operative management of a fracture (or fracture-dislocation complex) where closed reduction is performed (manipulation) and internal fixation is applied, usually in the form of K-wires to stabilize the fracture.",
+        "price" : 45000
+
+    },
+    {
+        "id" :6,
+        "name" : "Open Reduction and Internal Fixation of Distal",
+        "img": "https://i.ibb.co/1RxNXcn/Open-Reduction-and-Internal-Fixation-of-Distal-1.png",
+        "description" : "Open reduction and internal fixation is the procedure employed most often to treat severe distal radius fractures. The surgery is performed under sterile conditions in the operating room under general or local anesthesia.",
+        "price" : 75000
+
+    }
+
+]
