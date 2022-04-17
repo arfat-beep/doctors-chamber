@@ -5,8 +5,9 @@ const Header = () => {
   return (
     <header>
       <div>
-        {/* https://i.ibb.co/84gN6SG/logo.png */}
-        <img src="logo.png" alt="" />
+        <Link to="/">
+          <img src="https://i.ibb.co/84gN6SG/logo.png" alt="" />
+        </Link>
       </div>
       <nav>
         <Link to="/">Home</Link>

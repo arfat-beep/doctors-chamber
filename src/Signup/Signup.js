@@ -1,19 +1,28 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import AuthLogin from "../AuthLogin/AuthLogin";
-
+import auth from "../firebase.init";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { async } from "@firebase/util";
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, SignUpLoading, SignUpError] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, profileError] = useUpdateProfile(auth);
   const nameRef = useRef("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(name, email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
+  user && console.log(user);
   return (
     <div className="form-container">
       <div>
@@ -41,6 +50,7 @@ const Signup = () => {
             <p>
               Already Have an Account? <Link to="/login">Login</Link>
             </p>
+            <p>{user ? "Login" : "Error"} </p>
             <div>
               <input type="submit" value="Login" />
             </div>
