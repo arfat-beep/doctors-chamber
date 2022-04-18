@@ -5,7 +5,7 @@ const Banner = () => {
     <Carousel className="h-50 carosel-container">
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img "
           src="https://i.ibb.co/hDTcwm6/bg2.jpg"
           height="400"
           alt="Second slide"
@@ -18,7 +18,7 @@ const Banner = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src="https://i.ibb.co/ZGFhmyq/bg3.jpg"
           height="400"
           alt="Second slide"
@@ -34,9 +34,8 @@ const Banner = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src="https://i.ibb.co/VNxzJ0G/bg1.jpg"
-          height="400"
           alt="Third slide"
         />
 

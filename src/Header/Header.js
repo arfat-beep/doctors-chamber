@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import auth from "../firebase.init";
 import "./Header.css";
 const Header = () => {
@@ -10,22 +10,34 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link className="logo-name" to="/">
+        <NavLink className="logo-name" to="/">
           Doctor's Chamber
-        </Link>
+        </NavLink>
       </div>
       <nav style={navValue ? { top: " 82px" } : { top: "-300px" }}>
-        <Link onClick={() => setNavValue(!navValue)} to="/">
+        <NavLink
+          className={({ isActive }) => (isActive ? "link-active" : "link")}
+          onClick={() => setNavValue(!navValue)}
+          to="/"
+        >
           Home
-        </Link>
-        <Link onClick={() => setNavValue(!navValue)} to="/blogs">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "link-active" : "link")}
+          onClick={() => setNavValue(!navValue)}
+          to="/blogs"
+        >
           Blogs
-        </Link>
-        <Link onClick={() => setNavValue(!navValue)} to="/about">
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "link-active" : "link")}
+          onClick={() => setNavValue(!navValue)}
+          to="/about"
+        >
           About
-        </Link>
+        </NavLink>
         {user ? (
-          <Link
+          <NavLink
             to="/"
             onClick={() => {
               signOut(auth);
@@ -33,11 +45,11 @@ const Header = () => {
             }}
           >
             Logout
-          </Link>
+          </NavLink>
         ) : (
-          <Link onClick={() => setNavValue(!navValue)} to="/login">
+          <NavLink onClick={() => setNavValue(!navValue)} to="/login">
             Login
-          </Link>
+          </NavLink>
         )}
       </nav>
       <button className="menu-icon" onClick={() => setNavValue(!navValue)}>

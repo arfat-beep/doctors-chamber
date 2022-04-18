@@ -13,6 +13,9 @@ header {
   font-size: 30px;
   text-decoration: none;
 }
+.link-active {
+  color: #424d71;
+}
 nav a {
   text-decoration: none;
   margin-left: 20px;
@@ -24,6 +27,7 @@ nav a {
 }
 nav a:hover {
   border-color: #c7c9d9;
+  color: #fff;
 }
 .menu-icon {
   background-color: #4d77ff;
