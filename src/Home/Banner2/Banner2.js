@@ -8,7 +8,7 @@ const Banner2 = () => {
         <div className="col-12 col-lg-6 d-flex align-items-center">
           <div className="doctor-details mt-md-5">
             <h1 className="display-3">Doctor's Chamber</h1>
-            <h3 className="display-5">Rifa Moni Tuli</h3>
+            <h3 className="display-5">Dr. Rifa Moni Tuli</h3>
             <p className="ms-2">
               MBBS <br />
               MS(Orthopaedics) <br />
